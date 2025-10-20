@@ -2,14 +2,14 @@ import cv2
 from PIL import Image
 from util import get_limits
 
-yellow = [0, 255, 255]  # Color amarillo en formato BGR
+blue = [255, 0, 0]  # Color azul en formato BGR
 cap = cv2.VideoCapture(0)  # Open the default camera
 while True:
     ret, frame = cap.read()  # Read a frame from the camera
 
     hsvImage = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)  # Convert the frame to HSV color space
 
-    lower_limits, upper_limits = get_limits(color=yellow)  # Get the lower and upper limits for the specified color
+    lower_limits, upper_limits = get_limits(color=blue)  # Get the lower and upper limits for the specified color
 
     mask = cv2.inRange(hsvImage, lower_limits, upper_limits)
 
